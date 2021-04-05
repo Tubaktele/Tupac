@@ -3563,42 +3563,18 @@ local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_u
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
 local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
- SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
- return false 
+SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
+return false 
 end
-local text =[[
-⏺️| هناك {5} اوامر لعرضها
-⎯ ⎯ ⎯ ⎯
-🏷️| م1 ~ لعرض اوامر الحمايه
-💭| م2 ~ لعرض اوامر الادمنيه
-🗓| م3 ~ لعرض اوامر المدراء
-🎖️| م4 ~ لعرض اوامر المنشئين
-🚹| م5 ~ لعرض اوامر المطورين
-⎯ ⎯ ⎯ ⎯
-☑️ | CH [@TuBakX]
-]]
+local Text = '⌁︙هل انت متأكد من المغادره'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'اوام  الحماية', callback_data=msg.sender_user_id_.."/help1"},{text = 'اوامر الادمنية', callback_data=msg.sender_user_id_.."/help2"},
-},
-{
-{text = 'اوامر المدراء', callback_data=msg.sender_user_id_.."/help3"},{text = 'اوامر المنشئين', callback_data=msg.sender_user_id_.."/help4"},
-},
-{
-{text = 'اوامر المطورين', callback_data=msg.sender_user_id_.."/help5"},
-},
-{
-{text = 'اوامر التعطيل', callback_data=msg.sender_user_id_.."/homeaddrem"},{text = 'اوامر القفل', callback_data=msg.sender_user_id_.."/homelocks"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
+keyboard.inline_keyboard = {{{text="نعم",callback_data="/delyes"},{text="لا",callback_data="/delno"}}} 
+Msg_id = msg.id_/2097152/0.5
+return https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
 Dev_Abs(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end
-
-
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
 if DevAbs:get(TuPac.."Abs:Kick:Me"..msg.chat_id_) then
