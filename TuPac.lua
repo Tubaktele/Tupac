@@ -3556,35 +3556,28 @@ if text == "مشاهده المنشور" and ChCheck(msg) or text == "مشاهد
 DevAbs:set(TuPac..'Abs:viewget'..msg.sender_user_id_,true)
 Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
-
 if text == "السورس" or text == "سورس" then 
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
+ SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
+ return false 
+end
 local text =  [[
 Welcome To Source
+⌁︙TuPac TEAM
+┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
+⌁︙[Source Channel](https://t.me/TuBaKx)
 
+⌁︙[Exp Source](https://t.me/X6UX6)
+
+⌁︙[Developer](https://t.me/VlVlVI)
+┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
+⌁︙[Tws TuPac](https://t.me/R6JBOT)
 ]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية ⁦', callback_data="/help2"},
-},
-{
-{text = 'آوآمر آلمدرآء', callback_data="/help3"},{text = 'آوآمر آلمنشئين', callback_data="/help4"},
-},
-{
-{text = 'آوآمر آلمطورين', callback_data="/help5"},
-},
-{
-{text = 'آوآمر آلخدمية', callback_data="/help6"},{text = 'آوآمر آلاعضاء', callback_data="/help7"},
-},
-{
-{text = 'رجوع', callback_data="/help"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-return false
+Dev_Abs(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end
-end
-
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
 if DevAbs:get(TuPac.."Abs:Kick:Me"..msg.chat_id_) then
