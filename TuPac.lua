@@ -3596,11 +3596,6 @@ return false
 end
 ------------------------------------------------------
 
-if data.ID == "UpdateNewCallbackQuery" then
-local Chat_id = data.chat_id_
-local Msg_id = data.message_id_
-local msg_idd = Msg_id/2097152/0.5
-local Text = data.payload_.data_
 if Text == '/help' then
 if not Mod(data) then
 local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
