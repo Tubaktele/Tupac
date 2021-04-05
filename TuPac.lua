@@ -124,17 +124,19 @@ end
 Load_TuPac() 
 print("\27[36m"..[[
  -------------------------------------------------------
-                                            Source TuPac        
-                                           Devloper : @VlVlVI                                                                        
-    ________                           __                                            __       
-|                      \                     |  \                                          |  \      
- \▓▓▓▓▓▓▓▓__     __       | ▓▓ ____            ______        | ▓▓          __     
-        |  ▓▓   |       \      |    \   | ▓▓         \       |                \    | ▓▓         /  \   
-        |  ▓▓   |  ▓▓       |  ▓▓ | ▓▓▓▓▓▓▓\ \▓▓▓▓▓▓\   | ▓▓   _/ ▓▓   
-        |  ▓▓   |  ▓▓       |  ▓▓ | ▓▓       | ▓▓/                  ▓▓ | ▓▓   ▓▓       
-        |  ▓▓   |  ▓▓   __/  ▓▓ | ▓▓  _ _/ ▓▓    ▓▓▓▓▓▓▓  | ▓▓▓▓▓▓\  
-        |  ▓▓   \ ▓▓         ▓▓   | ▓▓        ▓▓    \▓▓      ▓▓▓  \ ▓▓  \▓▓\ 
-         \▓▓     \▓▓▓▓▓▓     \▓▓▓▓▓▓▓  \▓▓▓▓▓▓▓     \ ▓▓    \▓▓\                               
+- Source TeAm TuBak         
+- Devloper : @VlVlVI   
+- Ch Source : @TEAMTUBAK                                                                  
+       ________                 __                       __         
+     |                         |  \                     |  \        |
+      \▓▓▓▓▓▓▓▓__      __    | ▓▓ ____     ______     | ▓▓      __  
+        |  ▓▓   |      \   |  | ▓▓     \   |       \   | ▓▓     /  \ 
+        |  ▓▓   | ▓▓   | ▓▓  | ▓▓▓▓▓▓▓\   \▓▓▓▓▓▓\  | ▓▓   _/▓▓
+        |  ▓▓   | ▓▓   | ▓▓  | ▓▓    |▓▓          ▓▓  | ▓▓   ▓▓  
+        |  ▓▓   | ▓▓ __/ ▓▓  | ▓▓ __/ ▓▓    ▓▓▓▓▓▓▓  | ▓▓▓▓▓▓\  
+        |  ▓▓   \ ▓▓    ▓▓   | ▓▓    ▓▓  \▓▓    ▓▓▓   \ ▓▓   \▓▓\ 
+         \ ▓▓    \▓▓▓▓▓▓     \▓▓▓▓▓▓▓    \▓▓▓▓▓▓▓     \ ▓▓    \▓▓\                                        
+
                                                      
  -------------------------------------------------------
 ]]..'\27[m'.."\n\27[35mServer Information ↬ ⤈ \n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\27[m\n\27[36m~ \27[mUser \27[36m: \27[10;32m"..User.."\27[m\n\27[36m~ \27[mIp \27[36m: \27[10;32m"..Ip.."\27[m\n\27[36m~ \27[mName \27[36m: \27[10;32m"..Name.."\27[m\n\27[36m~ \27[mPort \27[36m: \27[10;32m"..Port.."\27[m\n\27[36m~ \27[mUpTime \27[36m: \27[10;32m"..UpTime.."\27[m\n\27[35m┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\27[m")
@@ -3555,19 +3557,31 @@ DevAbs:set(TuPac..'Abs:viewget'..msg.sender_user_id_,true)
 Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
 if text == "السورس" or text == "سورس" then 
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط هنا 🚹 .](t.me/tubakx)')   
+return false 
+end
 local text =  [[
-Welcome To Source
-⌁︙TuPac TEAM
-┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/TuBaKx)
-
-⌁︙[Exp Source](https://t.me/X6UX6)
-
-⌁︙[Developer](https://t.me/VlVlVI)
-┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Tws TuPac](https://t.me/R6JBOT)
+*🌐|  Welcome to Source*
+*أهلاً بك في سورس* [TuBaK Team 🔽](t.me/Tubakx)
 ]]
-Dev_Abs(msg.chat_id_, msg.id_, 1, text, 1, 'md')
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'قناة السورس 📢',url="t.me/tubakx"},
+},
+{
+{text = 'تواصل السورس 💭',url="t.me/Y_8ibot"},
+},
+{
+{text = 'شروحات السورس 🗓️',url="t.me/TUBAKTEAM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
