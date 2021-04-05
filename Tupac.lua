@@ -9236,7 +9236,7 @@ if SecondSudo(msg) then
 if text == "تحديث السورس" or text == "تحديث سورس" then 
 Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙جاري تحديث سورس ديف ديفد', 1, 'md') 
 os.execute('rm -rf TuPac.lua') 
-os.execute('wget https://raw.githubusercontent.com/TuPacTeam8/TuPacTeam/master/TuPac.lua') 
+os.execute('wget https://raw.githubusercontent.com/Tubaktele/Tupac/master/TuPac.lua') 
 dofile('TuPac.lua') 
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
