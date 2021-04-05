@@ -3561,10 +3561,6 @@ end
 
 
 if text == 'الاوامر' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,' ⌔︙هاذا الامر خاص بالادمنيه\n ⌔︙ارسل {م10} لعرض اوامر الاعضاء')
-return false
-end
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
