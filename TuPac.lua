@@ -3566,7 +3566,6 @@ local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
  SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
  return false 
 end
-if Addictive(msg) then
 local Text =[[
 ⏺️| هناك {5} اوامر لعرضها
 ⎯ ⎯ ⎯ ⎯
