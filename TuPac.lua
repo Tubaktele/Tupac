@@ -3566,7 +3566,7 @@ local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
 SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
 return false 
 end
-local Text = [[
+local text = [[
 ⌁︙هل انت متأكد من المغادره'
 ]]
 keyboard = {} 
@@ -3575,8 +3575,6 @@ Msg_id = msg.id_/2097152/0.5
 return https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-Dev_Abs(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-end
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
 if DevAbs:get(TuPac.."Abs:Kick:Me"..msg.chat_id_) then
