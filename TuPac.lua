@@ -3556,30 +3556,16 @@ if text == "مشاهده المنشور" and ChCheck(msg) or text == "مشاهد
 DevAbs:set(TuPac..'Abs:viewget'..msg.sender_user_id_,true)
 Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
-if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
-local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط هنا 🚹 .](t.me/tubakx)')   
-return false 
-end
-Text = [[
-*🌐|  Welcome to Source*
-*أهلاً بك في سورس* [TuBaK Team 🔽](t.me/Tubakx)
+if text == "السورس" or text == "سورس" then 
+local text =  [[
+Welcome To Source
+
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'قناة السورس 📢',url="t.me/tubakx"},
-},
-{
-{text = 'تواصل السورس 💭',url="t.me/Y_8ibot"},
-},
-{
-{text = 'شروحات السورس 🗓️',url="t.me/TUBAKTEAM"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+keyboard.inline_keyboard =
+{{{text="اضغط",url="t.me/vlvlvi"},{text="لا",callback_data="/delno"}}} 
+Msg_id = msg.id_/2097152/0.5
+return https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if ChatType == 'sp' or ChatType == 'gp'  then
