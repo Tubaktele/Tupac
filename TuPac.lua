@@ -3556,14 +3556,14 @@ if text == "مشاهده المنشور" and ChCheck(msg) or text == "مشاهد
 DevAbs:set(TuPac..'Abs:viewget'..msg.sender_user_id_,true)
 Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
-if text == "السورس" or text == "سورس" then 
+if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
 send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط هنا 🚹 .](t.me/tubakx)')   
 return false 
 end
-local text =  [[
+Text = [[
 *🌐|  Welcome to Source*
 *أهلاً بك في سورس* [TuBaK Team 🔽](t.me/Tubakx)
 ]]
@@ -3583,6 +3583,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
 if DevAbs:get(TuPac.."Abs:Kick:Me"..msg.chat_id_) then
