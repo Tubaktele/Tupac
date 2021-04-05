@@ -3566,7 +3566,9 @@ local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
 SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
 return false 
 end
-local Text = '⌁︙هل انت متأكد من المغادره'
+local Text = [[
+⌁︙هل انت متأكد من المغادره'
+]]
 keyboard = {} 
 keyboard.inline_keyboard = {{{text="نعم",callback_data="/delyes"},{text="لا",callback_data="/delno"}}} 
 Msg_id = msg.id_/2097152/0.5
